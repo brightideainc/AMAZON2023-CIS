@@ -63,3 +63,6 @@
       - amzn2023cis_section4
       - amzn2023cis_section5
       - amzn2023cis_section6
+
+- name: Reset permissions
+  command: restorecon -Rv /var/log/audit/
