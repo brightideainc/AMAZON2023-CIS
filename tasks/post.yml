@@ -26,6 +26,9 @@
       - not system_is_container
       - "'procps-ng' in ansible_facts.packages"
 
+- name: Reset permissions
+  command: restorecon -Rv /var/log/audit/
+
 - name: Flush handlers
   ansible.builtin.meta: flush_handlers
 
