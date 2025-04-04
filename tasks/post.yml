@@ -26,6 +26,9 @@
       - not system_is_container
       - "'procps-ng' in ansible_facts.packages"
 
+- name: Reset permissions
+  command: restorecon -Rv /var/log/audit/
+
 - name: Flush handlers
   ansible.builtin.meta: flush_handlers
 
@@ -63,6 +66,3 @@
       - amzn2023cis_section4
       - amzn2023cis_section5
       - amzn2023cis_section6
-
-- name: Reset permissions
-  command: restorecon -Rv /var/log/audit/
