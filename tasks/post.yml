@@ -29,6 +29,9 @@
 - name: Reset permissions
   command: restorecon -Rv /var/log/audit/
 
+- name: Disable selinux
+  command: setenforce 0
+
 - name: Flush handlers
   ansible.builtin.meta: flush_handlers
 
